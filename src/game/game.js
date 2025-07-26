@@ -152,6 +152,7 @@ export function loadGame() {
 export function resetGame() {
     localStorage.removeItem(SAVE_KEY);
     gameState = JSON.parse(JSON.stringify(initialState));
+    initializeBays(); // Re-initialize the bays after reset
     console.log("Game reset.");
 }
 

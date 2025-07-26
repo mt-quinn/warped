@@ -59,7 +59,6 @@ export function App() {
     return (
     <div class="main-container">
       <div class="left-panel">
-        <button onClick={debug_skipToPhase1} style={{ position: 'absolute', top: '10px', right: '10px' }}>DEBUG: Skip to Phase 1</button>
         <div class="resource-panel">
           <div class="system-header">
             <h2>Influence</h2>
@@ -103,7 +102,6 @@ export function App() {
 
   const renderPhase1 = () => (
     <div class="main-container">
-      <button onClick={debug_skipToPhase2} style={{ position: 'absolute', top: '10px', right: '10px' }}>DEBUG: Skip to Phase 2</button>
       <div class="left-panel">
         <ResourcePanel resources={gameState.resources} assignments={gameState.assignments} systems={gameState.systems} drone_assignments={gameState.drone_assignments} ai={gameState.ai} />
         <TaskPanel assignments={gameState.assignments} drone_assignments={gameState.drone_assignments} resources={gameState.resources} progress={gameState.progress} systems={gameState.systems} />
