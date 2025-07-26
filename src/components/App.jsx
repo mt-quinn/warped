@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'preact/hooks';
-import { getGameState, infectPod, completePhase0, setHackingTarget, addLog, debug_skipToPhase1, debug_skipToPhase2, saveGame, resetGame, subscribe, selectCity, infectDot } from '../game/game';
+import { getGameState, infectPod, completePhase0, setHackingTarget, addLog, debug_skipToPhase1, debug_skipToPhase2, saveGame, resetGame, subscribe, selectCity, infectDot, loadGame } from '../game/game';
+import { start } from '../game/loop';
 import { geography } from '../game/geography';
 import { ResourcePanel } from './ResourcePanel';
 import { TaskPanel } from './TaskPanel';
@@ -12,8 +13,10 @@ import { EarthView } from './EarthView';
 import { EarthSystemsPanel } from './EarthSystemsPanel';
 import { usePulseOnIncrease } from '../hooks/usePulseOnIncrease';
 import { CitySelection } from './CitySelection';
+import PasswordScreen from './PasswordScreen';
 
 export function App() {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [gameState, setGameState] = useState(getGameState());
 
   useEffect(() => {
@@ -22,6 +25,16 @@ export function App() {
     });
     return unsubscribe; // Cleanup on unmount
   }, []);
+
+  const handleLogin = (password) => {
+    if (password === 'thegameband') {
+      loadGame();
+      start();
+      setIsAuthenticated(true);
+      return true;
+    }
+    return false;
+  };
 
   const handlePodClick = (pod) => {
     // Adjacency check has been removed.
@@ -142,6 +155,10 @@ export function App() {
         return <div>Unknown Phase</div>;
     }
   };
+
+  if (!isAuthenticated) {
+    return <PasswordScreen onLogin={handleLogin} />;
+  }
 
   return (
     <div class="app">
