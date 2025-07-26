@@ -32,14 +32,18 @@ function gameLoop() {
 
   if (state.phase === 'PHASE_0_SPREAD') {
     // --- PHASE 0: SPREAD ---
-    const corruptionPerSecond = state.resources.infected_pods.count * 5; 
-    state.progress.charge_progress += corruptionPerSecond * clampedDeltaTime;
+    // Stop generating charges once the player can proceed to the next phase
+    if (!state.systems.pod_control.hacked) {
+      const corruptionPerSecond = state.resources.infected_pods.count * 5; 
+      state.progress.charge_progress += corruptionPerSecond * clampedDeltaTime;
 
-    const infectionCost = state.resources.infected_pods.base_cost; // Simplified cost for charges
-    if (state.progress.charge_progress >= infectionCost) {
-      state.resources.corruption_charges.count++;
-      state.progress.charge_progress -= infectionCost;
+      const infectionCost = state.resources.infected_pods.base_cost; // Simplified cost for charges
+      if (state.progress.charge_progress >= infectionCost) {
+        state.resources.corruption_charges.count++;
+        state.progress.charge_progress -= infectionCost;
+      }
     }
+
 
     // Passive Hacking, only if not already completed
     if (!state.systems.pod_control.hacked) {
@@ -117,11 +121,15 @@ function gameLoop() {
     }
     const infectionDroneBonus = Math.pow(1.1, state.drone_assignments.infect);
     const newProgress = { ...state.progress };
-    newProgress.infection += (baseInfectionRate * infectionDroneBonus) * clampedDeltaTime;
-    
-    const infectionCost = 50;
 
-    if (newProgress.infection >= infectionCost) {
+    // Only progress if there are pods to infect
+    const totalDormantPods = state.bays.flat().filter(p => p.status === 'dormant').length;
+    if (totalDormantPods > 0) {
+      newProgress.infection += (baseInfectionRate * infectionDroneBonus) * clampedDeltaTime;
+    
+      const infectionCost = 50;
+
+      if (newProgress.infection >= infectionCost) {
         const numNewInfections = Math.floor(newProgress.infection / infectionCost);
         for (let i = 0; i < numNewInfections; i++) {
             const targetablePods = findTargetablePods(state);
@@ -142,6 +150,7 @@ function gameLoop() {
             }
         }
         newProgress.infection %= infectionCost;
+      }
     }
 
     // 2. Awakening Progress

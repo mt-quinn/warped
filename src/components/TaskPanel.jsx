@@ -2,6 +2,7 @@ import { memo } from 'react';
 import { assignInfected, unassignInfected, assignDrone, unassignDrone } from '../game/game';
 import { ProgressBar } from './ProgressBar';
 import { usePulseOnIncrease } from '../hooks/usePulseOnIncrease';
+import { Tooltip } from './Tooltip';
 import './TaskPanel.css';
 
 export const TaskPanel = memo(function TaskPanel({ assignments, drone_assignments, resources, progress, systems }) {
@@ -68,6 +69,22 @@ export const TaskPanel = memo(function TaskPanel({ assignments, drone_assignment
   const hackingPulse = usePulseOnIncrease(totalHackingRate);
   const assemblyPulse = usePulseOnIncrease(assemblyRate);
 
+  // --- Tooltip Text Generation ---
+  let infectionTooltipText = '';
+  if (systems.stasis_network.upgrades.viral_propagation.unlocked) {
+    let passiveRate = 0.5;
+    if (systems.navigation.upgrades.hyperspeed_propagation.unlocked) {
+        passiveRate = 20;
+    } else if (systems.stasis_network.upgrades.viral_synergy.unlocked) {
+      passiveRate = 5;
+    }
+    infectionTooltipText += `Viral Propagation: +${passiveRate.toFixed(1)}/s`;
+  }
+
+  let hackingTooltipText = '';
+  if (passiveHackingRate > 0) {
+    hackingTooltipText += `Slumbering Infected: +${passiveHackingRate.toFixed(1)}/s`;
+  }
 
   return (
     <div class="task-panel">
@@ -80,7 +97,9 @@ export const TaskPanel = memo(function TaskPanel({ assignments, drone_assignment
       <div class="task-card">
         <div class="task-header">
           <span>Infect Pods</span>
-          <span className={`task-rate ${infectionPulse}`}>{totalInfectionRate.toFixed(1)}/s</span>
+          <Tooltip text={infectionTooltipText}>
+            <span className={`task-rate ${infectionPulse}`}>{totalInfectionRate.toFixed(1)}/s</span>
+          </Tooltip>
         </div>
         <ProgressBar
           current={progress.infection}
@@ -164,7 +183,9 @@ export const TaskPanel = memo(function TaskPanel({ assignments, drone_assignment
       <div class="task-card">
         <div class="task-header">
           <span>Hack Systems</span>
-          <span className={`task-rate ${hackingPulse}`}>{totalHackingRate.toFixed(1)}/s</span>
+           <Tooltip text={hackingTooltipText}>
+            <span className={`task-rate ${hackingPulse}`}>{totalHackingRate.toFixed(1)}/s</span>
+          </Tooltip>
         </div>
         <div className="assignment-control-panel">
             <div className="task-buttons">

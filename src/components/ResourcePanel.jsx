@@ -44,7 +44,7 @@ export const ResourcePanel = memo(function ResourcePanel({ resources, assignment
                 </div>
             </div>
         </Tooltip>
-        <Tooltip text="Your Infected Stasis Pods. Each pod provides 0.2/s hacking power. Infect more pods to Awaken more units.">
+        <Tooltip text="Your Infected Stasis Pods. Each pod provides 0.1/s hacking power. Infect more pods to Awaken more units.">
             <div className="resource-item">
                 <span className="resource-icon">👾</span>
                 <div className="resource-details">
