@@ -25,6 +25,7 @@ function PasswordScreen({ onLogin }) {
             onChange={(e) => setPassword(e.target.value)}
             placeholder="Password"
             autoFocus
+            data-1p-ignore
           />
           <button type="submit">Enter</button>
         </form>
