@@ -77,7 +77,7 @@ export const initialState = {
             name: 'Drones',
             count: 0,
             work_rate: 0.1,
-            base_cost: 100,
+            base_cost: 1000,
             cost_multiplier: 1.2
         },
     },
@@ -250,7 +250,7 @@ const systems = {
         name: 'Navigation',
         description: 'The ship\'s navigation and mapping systems.',
         hacked: false,
-        hacking_cost: 10000,
+        hacking_cost: 50000,
         hacking_progress: 0,
         upgrades: {
             reanimation_protocols: {
@@ -276,7 +276,7 @@ const systems = {
         name: 'FTL Control',
         description: 'The heart of the ship. Control of the FTL drive allows for interstellar travel... or a direct course to Earth.',
         hacked: false,
-        hacking_cost: 30000,
+        hacking_cost: 200000,
         hacking_progress: 0,
         upgrades: {}
     }
