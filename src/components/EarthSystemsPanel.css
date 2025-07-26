@@ -1,0 +1,41 @@
+.earth-systems-panel {
+  background-color: #0d1a26;
+  padding: 15px;
+  border-radius: 8px;
+  margin-top: 20px;
+}
+
+.earth-systems-panel h2 {
+  color: #ff6b6b;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.earth-systems-panel .system {
+  background-color: #1a2a38;
+  border: 1px solid #2c3e50;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.earth-systems-panel .system h3 {
+  color: #c7d5e0;
+  margin-top: 0;
+}
+
+.earth-systems-panel .system button {
+  width: 100%;
+  padding: 8px;
+  background-color: #ff6b6b;
+  color: #0d1a26;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.earth-systems-panel .system button:disabled {
+  background-color: #555;
+  cursor: not-allowed;
+} 

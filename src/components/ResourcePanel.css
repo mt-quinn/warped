@@ -1,0 +1,60 @@
+.resource-panel-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    padding: 1rem;
+    background-color: #2a2a2a;
+    border-radius: 8px;
+    border: 1px solid #444;
+}
+
+.resource-item {
+    background-color: #333;
+    border-radius: 6px;
+    padding: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    border: 1px solid #555;
+    position: relative; /* For tooltip positioning */
+}
+
+.resource-icon {
+    font-size: 1.8rem;
+    line-height: 1;
+}
+
+.resource-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.resource-label {
+    font-size: 0.75rem;
+    color: #aaa;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    line-height: 1;
+}
+
+.resource-value {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #e0e0e0;
+}
+
+.resource-rate {
+    font-size: 0.8rem;
+    color: #999;
+}
+
+.ai-vigilance-container {
+    grid-column: 1 / -1; /* Make this span the full width */
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.ai-vigilance-container strong {
+    font-size: 1.1rem;
+} 

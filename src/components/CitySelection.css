@@ -1,0 +1,49 @@
+.city-selection-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    background-color: #1a1a1a;
+    color: #ccc;
+    padding: 2rem;
+}
+
+.city-selection-container h2 {
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    color: #e60000;
+}
+
+.city-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+    width: 80%;
+    max-width: 1200px;
+}
+
+.city-card {
+    background-color: #2a2a2a;
+    border: 1px solid #444;
+    border-radius: 5px;
+    padding: 1rem;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.city-card:hover {
+    background-color: #3a3a3a;
+    border-color: #e60000;
+    transform: translateY(-5px);
+}
+
+.city-card h3 {
+    margin: 0 0 0.5rem 0;
+    color: #e60000;
+}
+
+.city-card p {
+    margin: 0;
+    font-size: 0.9rem;
+} 

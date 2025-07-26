@@ -1,0 +1,33 @@
+.unassigned-workers {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem;
+  background-color: #333;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+  border: 1px solid #555;
+  font-weight: bold;
+}
+
+.assignment-control-panel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: rgba(0,0,0,0.2);
+  padding: 0.5rem;
+  border-radius: 4px;
+  margin-top: 0.75rem;
+}
+
+.assignment-center {
+  text-align: center;
+  min-width: 160px; /* Give it some space */
+}
+
+.assignment-contribution {
+  font-size: 0.8rem;
+  color: #999;
+  display: block;
+} 

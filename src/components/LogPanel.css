@@ -1,0 +1,69 @@
+.log-panel {
+  background-color: #0d0d0d;
+  border: 1px solid #333;
+  padding: 1rem;
+  font-family: 'Share Tech Mono', monospace;
+  color: #ccc;
+  border-radius: 5px;
+}
+
+.log-panel h2 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: #e60000;
+  font-size: 1.2rem;
+  border-bottom: 1px solid #333;
+  padding-bottom: 0.5rem;
+}
+
+.log-entries {
+  height: 300px;
+  overflow-y: auto;
+  padding-right: 1rem; /* for scrollbar */
+  scrollbar-width: thin;
+  scrollbar-color: #e60000 #1a1a1a;
+}
+
+/* For Webkit browsers */
+.log-entries::-webkit-scrollbar {
+  width: 8px;
+}
+
+.log-entries::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+.log-entries::-webkit-scrollbar-thumb {
+  background-color: #e60000;
+  border-radius: 4px;
+}
+
+.log-entry {
+  margin-bottom: 0.75rem;
+  line-height: 1.4;
+  display: flex;
+}
+
+.log-entry .timestamp {
+  color: #666;
+  margin-right: 0.75rem;
+  flex-shrink: 0;
+}
+
+.log-entry .message {
+  flex-grow: 1;
+}
+
+.log-entry.narrative .message {
+  color: #9f86ff; /* A nice purple for narrative */
+  font-style: italic;
+  font-weight: bold;
+}
+
+.log-entry.event .message {
+  color: #4CAF50; /* A vibrant green for events */
+}
+
+.log-entry.warning .message {
+  color: #FFC107; /* A cautionary amber for warnings */
+} 

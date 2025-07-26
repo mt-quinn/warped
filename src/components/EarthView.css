@@ -1,0 +1,55 @@
+.earth-view {
+  padding: 20px;
+  background-color: #0d1a26;
+  color: #c7d5e0;
+  border-radius: 8px;
+}
+
+.earth-view h1 {
+  text-align: center;
+  color: #ff6b6b;
+}
+
+.earth-view .stats {
+  display: flex;
+  justify-content: space-around;
+  margin: 20px 0;
+}
+
+.earth-view .stats div {
+  text-align: center;
+}
+
+.earth-view .progress-bar {
+  width: 100%;
+  height: 30px;
+  background-color: #1a2a38;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.earth-view .progress {
+  height: 100%;
+  background-color: #ff6b6b;
+  transition: width 0.5s ease-in-out;
+}
+
+.dot-grid {
+  display: grid;
+  grid-template-columns: repeat(100, 1fr);
+  grid-template-rows: repeat(100, 1fr);
+  width: 500px;
+  height: 500px;
+  background-color: #2a2a2a;
+  border: 1px solid #c7d5e0;
+}
+
+.dot {
+  width: 100%;
+  height: 100%;
+  background-color: #2c3e50; /* Healthy color */
+}
+
+.dot.infected {
+  background-color: #ff6b6b; /* Infected color */
+} 
