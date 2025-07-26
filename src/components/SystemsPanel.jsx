@@ -95,20 +95,6 @@ export const SystemsPanel = memo(function SystemsPanel({ systems, currentTarget,
         )
       })}
 
-      {/* Special section for Bay Unlocking */}
-      <div class="system">
-          <div class="system-header">
-            <strong>Unlock Stasis Bay</strong>
-          </div>
-          <p class="system-description">Extend your influence to an adjacent stasis bay, revealing more minds to corrupt.</p>
-          <button
-            class="buy-button"
-            onClick={() => purchaseBay()}
-            disabled={processingPower < nextBayCost}
-          >
-            Unlock ({nextBayCost} ⚡️)
-          </button>
-      </div>
     </div>
   );
 }); 

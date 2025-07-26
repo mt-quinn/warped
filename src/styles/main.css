@@ -339,3 +339,28 @@ button {
 .pulse-green {
   animation: green-pulse 1s ease-out;
 } 
+
+/* --- Mobile Responsiveness --- */
+@media (max-width: 768px) {
+  .main-container {
+    flex-direction: column;
+  }
+
+  .left-panel, .right-panel {
+    flex: 1 1 100%; /* Allow panels to grow and shrink, but base them on 100% width */
+  }
+
+  .save-controls {
+    position: static; /* Take it out of the flow */
+    margin-bottom: 1rem;
+    justify-content: flex-end;
+  }
+
+  #app {
+    padding: 0.5rem;
+  }
+
+  body {
+    font-size: 14px; /* Slightly smaller font on mobile */
+  }
+} 

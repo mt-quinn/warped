@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'preact/hooks';
-import { getGameState, infectPod, completePhase0, setHackingTarget, addLog, debug_skipToPhase1, debug_skipToPhase2, saveGame, resetGame, subscribe, selectCity, infectDot, loadGame } from '../game/game';
+import { getGameState, infectPod, completePhase0, setHackingTarget, addLog, debug_skipToPhase1, debug_skipToPhase2, saveGame, resetGame, subscribe, selectCity, infectDot, loadGame, purchaseBay } from '../game/game';
 import { start } from '../game/loop';
 import { geography } from '../game/geography';
 import { ResourcePanel } from './ResourcePanel';
@@ -94,7 +94,14 @@ export function App() {
         )}
       </div>
       <div class="right-panel">
-        <PodBay bays={gameState.bays} onPodClick={handlePodClick} />
+        <PodBay 
+          phase={gameState.phase}
+          bays={gameState.bays} 
+          onPodClick={handlePodClick}
+          nextBayCost={gameState.next_bay_cost}
+          processingPower={gameState.resources.processing_power.count}
+          onPurchaseBay={purchaseBay}
+        />
       </div>
     </div>
     );
@@ -107,7 +114,14 @@ export function App() {
         <TaskPanel assignments={gameState.assignments} drone_assignments={gameState.drone_assignments} resources={gameState.resources} progress={gameState.progress} systems={gameState.systems} />
       </div>
       <div class="right-panel">
-        <PodBay bays={gameState.bays} onPodClick={() => {}} />
+        <PodBay 
+          phase={gameState.phase}
+          bays={gameState.bays} 
+          onPodClick={() => {}}
+          nextBayCost={gameState.next_bay_cost}
+          processingPower={gameState.resources.processing_power.count}
+          onPurchaseBay={purchaseBay}
+        />
         <SystemsPanel 
           systems={gameState.systems} 
           currentTarget={gameState.hacking_target}

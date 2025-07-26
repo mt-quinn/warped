@@ -159,7 +159,7 @@ const systems = {
     },
     stasis_network: {
         name: 'Stasis Network',
-        description: 'The network connecting all stasis pods. Hacking it allows for advanced viral abilities.',
+        description: 'Further compromise the network connecting Stasis Pods. Each Slumbering Infected gives 0.1/s Hack Systems.',
         hacked: false,
         hacking_cost: 1000,
         hacking_progress: 0,
@@ -227,7 +227,7 @@ const systems = {
     },
     drone_control: {
         name: 'Drone Control',
-        description: 'Control the ship\'s maintenance drones to automate tasks.',
+        description: "Control the ship's maintenance drones to improve efficiency. Each drone boosts an Assignment's work rate by a staking 1.1x.",
         hacked: false,
         hacking_cost: 5000,
         hacking_progress: 0,

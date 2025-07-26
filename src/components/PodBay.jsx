@@ -2,7 +2,8 @@ import { useState, useEffect, useRef } from 'preact/hooks';
 import './PodBay.css';
 import { memo } from 'react';
 
-export const PodBay = memo(function PodBay({ bays, onPodClick }) {
+export const PodBay = memo(function PodBay({ phase, bays, onPodClick, nextBayCost, processingPower, onPurchaseBay }) {
+  const [selectedPods, setSelectedPods] = useState(new Set());
   const [isDragging, setIsDragging] = useState(false);
   const [podSize, setPodSize] = useState(16);
   const [gapSize, setGapSize] = useState(1);
@@ -79,6 +80,18 @@ export const PodBay = memo(function PodBay({ bays, onPodClick }) {
           </div>
         ))}
       </div>
+      {phase === 'PHASE_1_AWAKENING' && (
+        <div class="bay-unlock-panel">
+            <p>Extend your influence to an adjacent stasis bay, revealing more minds to corrupt.</p>
+            <button
+              class="buy-button"
+              onClick={onPurchaseBay}
+              disabled={processingPower < nextBayCost}
+            >
+              Unlock Stasis Bay ({nextBayCost} ⚡️)
+            </button>
+        </div>
+      )}
     </div>
   );
 }); 
