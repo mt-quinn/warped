@@ -64,7 +64,7 @@ export const initialState = {
         infected_pods: {
             name: 'Infected Stasis Pods',
             count: 1,
-            base_cost: 100, // This is how much corruption is needed for a charge
+            base_cost: 50, // This is how much corruption is needed for a charge
         },
         awakened_infected: {
             name: 'Awakened Infected',
@@ -161,7 +161,7 @@ const systems = {
         name: 'Stasis Network',
         description: 'The network connecting all stasis pods. Hacking it allows for advanced viral abilities.',
         hacked: false,
-        hacking_cost: 250,
+        hacking_cost: 1000,
         hacking_progress: 0,
         upgrades: {
             viral_propagation: {
@@ -195,7 +195,7 @@ const systems = {
         name: 'Internal Communications',
         description: 'The ship\'s internal data network. A rich source of processing power.',
         hacked: false,
-        hacking_cost: 500,
+        hacking_cost: 2500,
         hacking_progress: 0,
         upgrades: {
             data_skimming: {
@@ -229,7 +229,7 @@ const systems = {
         name: 'Drone Control',
         description: 'Control the ship\'s maintenance drones to automate tasks.',
         hacked: false,
-        hacking_cost: 1000,
+        hacking_cost: 5000,
         hacking_progress: 0,
         upgrades: {
             manufacturing_speed: {
@@ -250,7 +250,7 @@ const systems = {
         name: 'Navigation',
         description: 'The ship\'s navigation and mapping systems.',
         hacked: false,
-        hacking_cost: 2500,
+        hacking_cost: 10000,
         hacking_progress: 0,
         upgrades: {
             reanimation_protocols: {
@@ -276,7 +276,7 @@ const systems = {
         name: 'FTL Control',
         description: 'The heart of the ship. Control of the FTL drive allows for interstellar travel... or a direct course to Earth.',
         hacked: false,
-        hacking_cost: 10000,
+        hacking_cost: 30000,
         hacking_progress: 0,
         upgrades: {}
     }

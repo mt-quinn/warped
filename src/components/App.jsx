@@ -50,7 +50,7 @@ export function App() {
   }
 
   const renderPhase0 = () => {
-    const corruptionRate = gameState.resources.infected_pods.count * 2.5;
+    const corruptionRate = gameState.resources.infected_pods.count * 5;
     const hackingRate = gameState.resources.infected_pods.count * 0.2;
 
     const corruptionPulse = usePulseOnIncrease(corruptionRate);

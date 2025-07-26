@@ -32,7 +32,7 @@ function gameLoop() {
 
   if (state.phase === 'PHASE_0_SPREAD') {
     // --- PHASE 0: SPREAD ---
-    const corruptionPerSecond = state.resources.infected_pods.count * 2.5; 
+    const corruptionPerSecond = state.resources.infected_pods.count * 5; 
     state.progress.charge_progress += corruptionPerSecond * clampedDeltaTime;
 
     const infectionCost = state.resources.infected_pods.base_cost; // Simplified cost for charges
